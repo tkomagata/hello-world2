@@ -20,6 +20,6 @@ script:
 - curl --request POST -k -v --cacert meta_folder/rootCA.crt.pem --cert $SP_CERTIFICATE
   --key $PRIVATE_KEY --form "service=$SERVICE_UUID" --form "file=@package/service.tar.gz"
   $AOS_UPLOAD_SERVICE_URL
-dd:
+before_install:
 - openssl aes-256-cbc -K $encrypted_882fad92d21c_key -iv $encrypted_882fad92d21c_iv
   -in meta_folder/private_key.pem.enc -out meta_folder/private_key.pem -d
